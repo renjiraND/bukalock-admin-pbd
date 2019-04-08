@@ -19,31 +19,31 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          
-          <div class="form-group container card text-dark p-5">
-            <label htmlFor="email" className="text-left">Input E-mail:</label>
-            <hr/>
-            <input 
-              type="email" 
-              className="form-control my-2" 
-              name="email"
-              value={this.state.email}
-              placeholder="input a valid gmail here"
-              onChange={this.handleChange} />
-            <button type="button" class="btn btn-primary" onClick={this.handleClick}>Add User</button>
-          </div>
-
-          <div class="form-group container card text-dark p-5">
-            <label htmlFor="rfid" className="text-left">Input RFID-Tag</label>
-            <hr/>
-            <input 
-              type="rfid" 
-              className="form-control my-2" 
-              name="rfid"
-              value={this.state.rfid}u
-              placeholder="input a valid RFID-Tag here"
-              onChange={this.handleChange} />
-            <button type="button" class="btn btn-primary" onClick={this.handleClickRFID}>Add RFID-Tag</button>
+          <div className="form-group container card text-dark p-5 container">
+            <div className="h2">Input User Data</div>
+            
+            <div className="row">
+              <label htmlFor="email" className="text-right mt-3 h5 col-3">E-mail</label>
+              <input 
+                type="email" 
+                className="form-control my-2 col pr-3" 
+                name="email"
+                value={this.state.email}
+                placeholder="input a valid gmail here"
+                onChange={this.handleChange} />
+            </div>
+            <div className="row">            
+              <label htmlFor="rfid" className="text-right mt-3 h5 col-3">RFID-Tag</label>
+              <hr/>
+              <input 
+                type="rfid" 
+                className="form-control my-2 col pr-3" 
+                name="rfid"
+                value={this.state.rfid}u
+                placeholder="input a valid RFID-Tag here"
+                onChange={this.handleChange} />
+            </div>
+            <button type="button" className="btn btn-primary" onClick={this.handleClick}>Submit User</button>
           </div>
 
         </header>
@@ -54,17 +54,10 @@ class App extends Component {
   handleClick = (e) => {
     e.preventDefault();
     const user = {
-      email:this.state.email
-    }
-    this.ref.push(user);
-  }
-
-  handleClickRFID = (e) => {
-    e.preventDefault();
-    const rfid_tag = {
+      email:this.state.email,
       rfid:this.state.rfid
     }
-    this.ref_rfid.push(rfid_tag);
+    this.ref.push(user);
   }
 
   handleChange = (e) => {
